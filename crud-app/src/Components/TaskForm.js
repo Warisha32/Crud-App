@@ -4,6 +4,8 @@ import { addTask } from '../actions/taskActions';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
+// ... (import statements remain unchanged)
+
 const TaskForm = () => {
   const dispatch = useDispatch();
   const [task, setTask] = useState({ title: '', description: '', dueDate: new Date(), priority: '' });
@@ -18,12 +20,19 @@ const TaskForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Check if title is not empty or only contains spaces
+    if (task.title.trim() === '') {
+      alert('Please fill in the Title field.');
+      return;
+    }
+
     dispatch(addTask({ ...task, id: new Date().getTime(), completed: false }));
     setTask({ title: '', description: '', dueDate: new Date(), priority: '' });
   };
 
   return (
-    <div className="bg-white p-8 rounded-md mb-8">
+    <div className="bg-white p-8 rounded-md mb-8 max-w-xl mx-auto">
       <h2 className="text-2xl font-bold mb-4">Add New Task</h2>
       <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
         <label className="text-sm font-semibold">Title:</label>
@@ -75,3 +84,4 @@ const TaskForm = () => {
 };
 
 export default TaskForm;
+

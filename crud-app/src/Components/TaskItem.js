@@ -34,36 +34,38 @@ const TaskItem = ({ task }) => {
   };
 
   return (
-    <li className={`task-item ${task.completed ? 'bg-green-100' : 'bg-yellow-100'} p-4 mb-4 rounded`}>
-    {isEditing ? (
-  <div className="mt-4">
-    <input
-      type="text"
-      name="title"
-      value={editedTask.title}
-      onChange={handleChange}
-      className="p-2 mb-2 border rounded w-full focus:outline-none focus:ring focus:border-blue-300"
-    />
-    <textarea
-      name="description"
-      value={editedTask.description}
-      onChange={handleChange}
-      className="p-2 border rounded w-full resize-none focus:outline-none focus:ring focus:border-blue-300"
-    />
-    <button
-      className="bg-blue-500 text-white py-2 px-4 rounded mr-2 hover:bg-blue-600"
-      onClick={handleSaveEdit}
-    >
-      Save
-    </button>
-    <button
-      className="bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-600"
-      onClick={handleCancelEdit}
-    >
-      Cancel
-    </button>
-  </div>
-)  : (
+    <li className={`task-item ${task.completed ? 'bg-green-100' : 'bg-yellow-100'} p-4 mb-4 rounded-md`}>
+      {isEditing ? (
+        <div className="mt-4">
+          <input
+            type="text"
+            name="title"
+            value={editedTask.title}
+            onChange={handleChange}
+            className="p-2 mb-2 border rounded w-full focus:outline-none focus:ring focus:border-blue-300"
+          />
+          <textarea
+            name="description"
+            value={editedTask.description}
+            onChange={handleChange}
+            className="p-2 border rounded w-full resize-none focus:outline-none focus:ring focus:border-blue-300"
+          />
+          <div className="flex justify-end mt-2">
+            <button
+              className="bg-blue-500 text-white py-2 px-4 rounded mr-2 hover:bg-blue-600"
+              onClick={handleSaveEdit}
+            >
+              Save
+            </button>
+            <button
+              className="bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-600"
+              onClick={handleCancelEdit}
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      ) : (
         <div>
           <strong>{task.title}</strong>
           <p>{task.description}</p>
