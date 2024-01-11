@@ -4,8 +4,6 @@ import { addTask } from '../actions/taskActions';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-// ... (import statements remain unchanged)
-
 const TaskForm = () => {
   const dispatch = useDispatch();
   const [task, setTask] = useState({ title: '', description: '', dueDate: new Date(), priority: '' });
