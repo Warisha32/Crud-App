@@ -54,7 +54,7 @@ const TaskList = () => {
           onChange={(e) => setSelectedPriority(e.target.value)}
           className="p-2 border rounded mr-2"
         >
-          <option value="">All Priorities</option>
+          <option value="">Priority</option>
           <option value="low">Low</option>
           <option value="medium">Medium</option>
           <option value="high">High</option>
@@ -66,7 +66,7 @@ const TaskList = () => {
           onChange={(e) => setSelectedTaskState(e.target.value)}
           className="p-2 border rounded"
         >
-          <option value="">All States</option>
+          <option value=""> Status</option>
           <option value="pending">Pending</option>
           <option value="completed">Completed</option>
         </select>
